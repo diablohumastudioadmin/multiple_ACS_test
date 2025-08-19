@@ -6,7 +6,7 @@ class_name LevelBtn extends Button
 var acs_unit: ACS.ACSUnit
 
 func _set_level(new_value: Level):
-	level = new_value
+	level = new_value.duplicate()
 	if Engine.is_editor_hint() and new_value != null:
 		_set_text_and_colors()
 
@@ -17,6 +17,9 @@ func _ready() -> void:
 	level.just_unlocked.connect(_on_level_just_unlocked)
 	_set_text_and_colors()
 
+func change_level_conditions_to_acs_unit():
+	level.get_acs_unit_conditions(acs_unit)
+
 func _set_text_and_colors():
 	text = level.level_name
 	if !level.is_unlocked and !level.unlocked_by_default:
@@ -26,4 +29,5 @@ func _set_text_and_colors():
 		modulate = Color.GREEN
 
 func _on_pressed() -> void:
-	ACS.set_action(Action.new(Action.TYPES.LVL_BUYED, PayloadBuyedLevel.new(level.id), acs_unit))
+	print(level.id)
+	ACS.set_action(Action.new(Action.TYPES.LVL_BUYED, PayloadBuyedLevel.new(level.id)), acs_unit)

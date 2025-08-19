@@ -4,15 +4,21 @@ signal just_unlocked
 
 @export var id: String
 @export var level_name: String
-@export var unlock_conditions: Array[Condition] : set = _set_unlock_conditions
+@export var unlock_conditions: Array[Condition] 
 
 var is_unlocked: bool = false
 @export var unlocked_by_default: bool
 
-func _set_unlock_conditions(new_value: Array[Condition]):
-	for condition in new_value:
-		var new_condition: Condition = ACS.get_condition_by_id(condition.id)
-		unlock_conditions.append(new_condition)
+func get_acs_unit_conditions(acs_unit: ACS.ACSUnit):
+	for condition in unlock_conditions:
+		if condition.fullfilled.is_connected(_on_condition_fullfilled):
+			condition.fullfilled.disconnect(_on_condition_fullfilled)
+
+	var new_conditions_array: Array[Condition]
+	for condition in unlock_conditions:
+		var new_condition: Condition = ACS.get_condition_by_id(condition.id, acs_unit)
+		new_conditions_array.append(new_condition)
+	unlock_conditions = new_conditions_array
 
 	for condition in unlock_conditions:
 		if !condition.fullfilled.is_connected(_on_condition_fullfilled):
