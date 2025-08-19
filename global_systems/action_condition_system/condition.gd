@@ -3,7 +3,7 @@ class_name Condition extends Resource
 @warning_ignore("unused_signal")
 signal fullfilled(cond: Condition)
 
-#@export var id: String
+@export var id: String
 
 var type: Action.TYPES
 

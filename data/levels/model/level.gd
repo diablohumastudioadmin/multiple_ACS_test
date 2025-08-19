@@ -10,8 +10,10 @@ var is_unlocked: bool = false
 @export var unlocked_by_default: bool
 
 func _set_unlock_conditions(new_value: Array[Condition]):
-	unlock_conditions = new_value
-	
+	for condition in new_value:
+		var new_condition: Condition = ACS.get_condition_by_id(condition.id)
+		unlock_conditions.append(new_condition)
+
 	for condition in unlock_conditions:
 		if !condition.fullfilled.is_connected(_on_condition_fullfilled):
 			condition.fullfilled.connect(_on_condition_fullfilled)

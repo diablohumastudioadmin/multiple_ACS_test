@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_umxgi")
 buyed_level_id = "Lvl1"
+id = "cond_buyed_level_lvl_1"
 metadata/_custom_type_script = "uid://bs5ki4k4e3msv"
