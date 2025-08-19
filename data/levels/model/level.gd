@@ -9,14 +9,14 @@ signal just_unlocked
 var is_unlocked: bool = false
 @export var unlocked_by_default: bool
 
-func get_acs_unit_conditions(acs_unit: ACS.ACSUnit):
+func get_acs_unit_conditions(acs_unit: ActionConditionSystem):
 	for condition in unlock_conditions:
 		if condition.fullfilled.is_connected(_on_condition_fullfilled):
 			condition.fullfilled.disconnect(_on_condition_fullfilled)
 
 	var new_conditions_array: Array[Condition]
 	for condition in unlock_conditions:
-		var new_condition: Condition = ACS.get_condition_by_id(condition.id, acs_unit)
+		var new_condition: Condition = acs_unit.get_condition_by_id(condition.id)
 		new_conditions_array.append(new_condition)
 	unlock_conditions = new_conditions_array
 

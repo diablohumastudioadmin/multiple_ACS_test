@@ -1,7 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4ugdqifiasoe"]
+[gd_scene load_steps=11 format=3 uid="uid://b4ugdqifiasoe"]
 
 [ext_resource type="PackedScene" uid="uid://c5ybupdqicsaj" path="res://screens/menu/levels_popup/levels_popup.tscn" id="1_07onf"]
 [ext_resource type="Script" uid="uid://df3ouxg2y2k4n" path="res://screens/menu/menu.gd" id="1_kk6u3"]
+[ext_resource type="PackedScene" uid="uid://b00o2is2n3lgw" path="res://screens/menu/level_btn/level_btn.tscn" id="3_a32w4"]
+[ext_resource type="Script" uid="uid://cwloi44j6wk48" path="res://data/levels/model/level.gd" id="4_6veab"]
+[ext_resource type="Script" uid="uid://c3q5a38d6bh20" path="res://global_systems/action_condition_system/condition.gd" id="5_pv3j2"]
+[ext_resource type="Resource" uid="uid://bl4k2rf85lore" path="res://global_systems/action_condition_system/conditions/data/cond_buyed_level_lvl_1.tres" id="6_pmnwj"]
+[ext_resource type="Resource" uid="uid://dpej73mom1lk" path="res://global_systems/action_condition_system/conditions/data/cond_buyed_level_lvl_2.tres" id="7_m5yib"]
+
+[sub_resource type="Resource" id="Resource_a32w4"]
+script = ExtResource("4_6veab")
+id = "Lvl1"
+level_name = "Level 1"
+unlock_conditions = Array[ExtResource("5_pv3j2")]([])
+unlocked_by_default = true
+metadata/_custom_type_script = "uid://cwloi44j6wk48"
+
+[sub_resource type="Resource" id="Resource_6veab"]
+script = ExtResource("4_6veab")
+id = "Lvl2"
+level_name = "Level 2"
+unlock_conditions = Array[ExtResource("5_pv3j2")]([ExtResource("6_pmnwj")])
+unlocked_by_default = false
+metadata/_custom_type_script = "uid://cwloi44j6wk48"
+
+[sub_resource type="Resource" id="Resource_pv3j2"]
+script = ExtResource("4_6veab")
+id = "Lvl3"
+level_name = "Level 3"
+unlock_conditions = Array[ExtResource("5_pv3j2")]([ExtResource("7_m5yib")])
+unlocked_by_default = false
+metadata/_custom_type_script = "uid://cwloi44j6wk48"
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -25,3 +54,24 @@ offset_left = 1033.0
 offset_top = 339.0
 offset_right = 1225.0
 offset_bottom = 599.0
+
+[node name="BtnContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LevelBtn" parent="BtnContainer" instance=ExtResource("3_a32w4")]
+layout_mode = 2
+text = "Level 1"
+level = SubResource("Resource_a32w4")
+
+[node name="LevelBtn2" parent="BtnContainer" instance=ExtResource("3_a32w4")]
+layout_mode = 2
+text = "Level 2"
+level = SubResource("Resource_6veab")
+
+[node name="LevelBtn3" parent="BtnContainer" instance=ExtResource("3_a32w4")]
+layout_mode = 2
+text = "Level 3"
+level = SubResource("Resource_pv3j2")

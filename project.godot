@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ACS="*res://global_systems/action_condition_system/action_condition_system.tscn"
+GlobalACS="*res://global_systems/action_condition_system/action_condition_system.gd"
 
 [display]
 

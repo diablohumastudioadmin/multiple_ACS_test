@@ -1,4 +1,4 @@
-class_name PayloadBuyedLevel extends Payload
+class_name PayloadBuyedLevel extends ActionPayload
 
 @export var buyed_level_id: String
 

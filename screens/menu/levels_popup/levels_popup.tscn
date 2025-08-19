@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://bl4k2rf85lore" path="res://global_systems/action_condition_system/conditions/data/cond_buyed_level_lvl_1.tres" id="5_p4q6b"]
 [ext_resource type="Resource" uid="uid://dpej73mom1lk" path="res://global_systems/action_condition_system/conditions/data/cond_buyed_level_lvl_2.tres" id="6_n6p1u"]
 
-[sub_resource type="Resource" id="Resource_uxv2k"]
+[sub_resource type="Resource" id="Resource_32prg"]
 script = ExtResource("3_32prg")
 id = "Lvl1"
 level_name = "Level 1"
@@ -15,7 +15,7 @@ unlock_conditions = Array[ExtResource("4_a3bgv")]([])
 unlocked_by_default = true
 metadata/_custom_type_script = "uid://cwloi44j6wk48"
 
-[sub_resource type="Resource" id="Resource_6fc8m"]
+[sub_resource type="Resource" id="Resource_a3bgv"]
 script = ExtResource("3_32prg")
 id = "Lvl2"
 level_name = "Level 2"
@@ -23,7 +23,7 @@ unlock_conditions = Array[ExtResource("4_a3bgv")]([ExtResource("5_p4q6b")])
 unlocked_by_default = false
 metadata/_custom_type_script = "uid://cwloi44j6wk48"
 
-[sub_resource type="Resource" id="Resource_lvhgl"]
+[sub_resource type="Resource" id="Resource_p4q6b"]
 script = ExtResource("3_32prg")
 id = "Lvl3"
 level_name = "Level 3"
@@ -48,16 +48,16 @@ layout_mode = 2
 [node name="LevelBtn" parent="LevelBtnsContainer" instance=ExtResource("1_07onf")]
 layout_mode = 2
 text = "Level 1"
-level = SubResource("Resource_uxv2k")
+level = SubResource("Resource_32prg")
 
 [node name="LevelBtn2" parent="LevelBtnsContainer" instance=ExtResource("1_07onf")]
 layout_mode = 2
 text = "Level 2"
-level = SubResource("Resource_6fc8m")
+level = SubResource("Resource_a3bgv")
 
 [node name="LevelBtn3" parent="LevelBtnsContainer" instance=ExtResource("1_07onf")]
 layout_mode = 2
 text = "Level 3"
-level = SubResource("Resource_lvhgl")
+level = SubResource("Resource_p4q6b")
 
 [connection signal="pressed" from="CloseBtn" to="." method="_on_close_btn_pressed"]
