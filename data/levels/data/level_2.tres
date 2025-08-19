@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Level" load_steps=4 format=3 uid="uid://ofkhjt3r1xn7"]
+
+[ext_resource type="Script" uid="uid://c3q5a38d6bh20" path="res://global_systems/action_condition_system/condition.gd" id="1_w1amv"]
+[ext_resource type="Script" uid="uid://cwloi44j6wk48" path="res://data/levels/model/level.gd" id="2_mtgby"]
+[ext_resource type="Resource" uid="uid://bl4k2rf85lore" path="res://global_systems/action_condition_system/conditions/data/cond_buyed_level_lvl_1.tres" id="3_mtgby"]
+
+[resource]
+script = ExtResource("2_mtgby")
+id = "Lvl2"
+level_name = "Level 2"
+unlock_conditions = Array[ExtResource("1_w1amv")]([ExtResource("3_mtgby")])
+unlocked_by_default = false
+metadata/_custom_type_script = "uid://cwloi44j6wk48"

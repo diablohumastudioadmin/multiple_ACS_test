@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b00o2is2n3lgw"]
+
+[ext_resource type="Script" uid="uid://cugrm7kipt3f5" path="res://screens/menu/level_btn/level_btn.gd" id="1_pijlg"]
+
+[node name="LevelBtn" type="Button"]
+theme_override_font_sizes/font_size = 55
+text = "Level Btn"
+script = ExtResource("1_pijlg")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

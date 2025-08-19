@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://bdbt5336jku6o"]
+
+[ext_resource type="Script" uid="uid://c3q5a38d6bh20" path="res://global_systems/action_condition_system/condition.gd" id="1_fxn08"]
+[ext_resource type="Script" uid="uid://cwloi44j6wk48" path="res://data/levels/model/level.gd" id="2_u0b47"]
+
+[resource]
+script = ExtResource("2_u0b47")
+id = "Lvl1"
+level_name = "Level 1"
+unlock_conditions = Array[ExtResource("1_fxn08")]([])
+unlocked_by_default = true
+metadata/_custom_type_script = "uid://cwloi44j6wk48"

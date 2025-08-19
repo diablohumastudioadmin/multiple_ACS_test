@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fukh6f2tqm86"]
+
+[ext_resource type="Script" uid="uid://h3ig6hxkm56b" path="res://global_systems/action_condition_system/action_condition_system.gd" id="1_sdvyu"]
+
+[node name="ActionConditionSystem" type="Node"]
+script = ExtResource("1_sdvyu")

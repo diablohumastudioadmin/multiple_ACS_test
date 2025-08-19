@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CondBuyedLevel" load_steps=2 format=3 uid="uid://dpej73mom1lk"]
+
+[ext_resource type="Script" uid="uid://bs5ki4k4e3msv" path="res://global_systems/action_condition_system/conditions/models/cond_buyed_level.gd" id="1_mjdsc"]
+
+[resource]
+script = ExtResource("1_mjdsc")
+buyed_level_id = "Lvl2"
+metadata/_custom_type_script = "uid://bs5ki4k4e3msv"

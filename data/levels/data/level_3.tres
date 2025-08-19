@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Level" load_steps=4 format=3 uid="uid://dh7tcrger86mu"]
+
+[ext_resource type="Script" uid="uid://c3q5a38d6bh20" path="res://global_systems/action_condition_system/condition.gd" id="1_rwc85"]
+[ext_resource type="Script" uid="uid://cwloi44j6wk48" path="res://data/levels/model/level.gd" id="2_vp3nf"]
+[ext_resource type="Resource" uid="uid://dpej73mom1lk" path="res://global_systems/action_condition_system/conditions/data/cond_buyed_level_lvl_2.tres" id="3_vp3nf"]
+
+[resource]
+script = ExtResource("2_vp3nf")
+id = "Lvl3"
+level_name = "Level 3"
+unlock_conditions = Array[ExtResource("1_rwc85")]([ExtResource("3_vp3nf")])
+unlocked_by_default = false
+metadata/_custom_type_script = "uid://cwloi44j6wk48"
