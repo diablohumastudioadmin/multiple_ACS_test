@@ -1,27 +1,63 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5ybupdqicsaj"]
+[gd_scene load_steps=10 format=3 uid="uid://c5ybupdqicsaj"]
 
 [ext_resource type="PackedScene" uid="uid://b00o2is2n3lgw" path="res://screens/menu/level_btn/level_btn.tscn" id="1_07onf"]
 [ext_resource type="Script" uid="uid://d1w4fuwiterke" path="res://screens/menu/levels_popup/levels_popup.gd" id="1_sr812"]
-[ext_resource type="Resource" uid="uid://bdbt5336jku6o" path="res://data/levels/data/level_1.tres" id="2_xuol8"]
-[ext_resource type="Resource" uid="uid://ofkhjt3r1xn7" path="res://data/levels/data/level_2.tres" id="3_0550l"]
-[ext_resource type="Resource" uid="uid://dh7tcrger86mu" path="res://data/levels/data/level_3.tres" id="4_18nnc"]
+[ext_resource type="Script" uid="uid://cwloi44j6wk48" path="res://data/levels/model/level.gd" id="3_32prg"]
+[ext_resource type="Script" uid="uid://c3q5a38d6bh20" path="res://global_systems/action_condition_system/condition.gd" id="4_a3bgv"]
+[ext_resource type="Resource" uid="uid://bl4k2rf85lore" path="res://global_systems/action_condition_system/conditions/data/cond_buyed_level_lvl_1.tres" id="5_p4q6b"]
+[ext_resource type="Resource" uid="uid://dpej73mom1lk" path="res://global_systems/action_condition_system/conditions/data/cond_buyed_level_lvl_2.tres" id="6_n6p1u"]
+
+[sub_resource type="Resource" id="Resource_uxv2k"]
+script = ExtResource("3_32prg")
+id = "Lvl1"
+level_name = "Level 1"
+unlock_conditions = Array[ExtResource("4_a3bgv")]([])
+unlocked_by_default = true
+metadata/_custom_type_script = "uid://cwloi44j6wk48"
+
+[sub_resource type="Resource" id="Resource_6fc8m"]
+script = ExtResource("3_32prg")
+id = "Lvl2"
+level_name = "Level 2"
+unlock_conditions = Array[ExtResource("4_a3bgv")]([ExtResource("5_p4q6b")])
+unlocked_by_default = false
+metadata/_custom_type_script = "uid://cwloi44j6wk48"
+
+[sub_resource type="Resource" id="Resource_lvhgl"]
+script = ExtResource("3_32prg")
+id = "Lvl3"
+level_name = "Level 3"
+unlock_conditions = Array[ExtResource("4_a3bgv")]([ExtResource("6_n6p1u")])
+unlocked_by_default = false
+metadata/_custom_type_script = "uid://cwloi44j6wk48"
 
 [node name="LevelsPopUP" type="VBoxContainer"]
 offset_right = 192.0
 offset_bottom = 260.0
 script = ExtResource("1_sr812")
 
-[node name="LevelBtn" parent="." instance=ExtResource("1_07onf")]
+[node name="CloseBtn" type="Button" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "X"
+
+[node name="LevelBtnsContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LevelBtn" parent="LevelBtnsContainer" instance=ExtResource("1_07onf")]
 layout_mode = 2
 text = "Level 1"
-level = ExtResource("2_xuol8")
+level = SubResource("Resource_uxv2k")
 
-[node name="LevelBtn2" parent="." instance=ExtResource("1_07onf")]
+[node name="LevelBtn2" parent="LevelBtnsContainer" instance=ExtResource("1_07onf")]
 layout_mode = 2
 text = "Level 2"
-level = ExtResource("3_0550l")
+level = SubResource("Resource_6fc8m")
 
-[node name="LevelBtn3" parent="." instance=ExtResource("1_07onf")]
+[node name="LevelBtn3" parent="LevelBtnsContainer" instance=ExtResource("1_07onf")]
 layout_mode = 2
 text = "Level 3"
-level = ExtResource("4_18nnc")
+level = SubResource("Resource_lvhgl")
+
+[connection signal="pressed" from="CloseBtn" to="." method="_on_close_btn_pressed"]

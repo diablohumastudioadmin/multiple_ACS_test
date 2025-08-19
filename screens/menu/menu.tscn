@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4ugdqifiasoe"]
+[gd_scene load_steps=3 format=3 uid="uid://b4ugdqifiasoe"]
 
 [ext_resource type="PackedScene" uid="uid://c5ybupdqicsaj" path="res://screens/menu/levels_popup/levels_popup.tscn" id="1_07onf"]
+[ext_resource type="Script" uid="uid://df3ouxg2y2k4n" path="res://screens/menu/menu.gd" id="1_kk6u3"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kk6u3")
 
 [node name="LevelsPopUP" parent="." instance=ExtResource("1_07onf")]
 layout_mode = 0
